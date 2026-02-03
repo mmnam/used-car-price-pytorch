@@ -7,6 +7,9 @@ import kagglehub
 from kagglehub import KaggleDatasetAdapter
 import os
 
+# Adding Torch seed so results are more repeatable
+torch.manual_seed(42)
+
 # --------------------
 # 1) Load dataset and clean variables
 # --------------------
@@ -25,7 +28,7 @@ price = (df["price"].astype(str)
 df["price_num"] = price
 
 # filter extreme outliers
-df = df[df["price_num"].between(1000, 300000)]
+df = df[df["price_num"].between(1000, 300000)].copy()
 
 # mileage transformation: "12,345 mi." -> 12345. This is one of our predictor variables X
 milage = (df["milage"].astype(str)
@@ -82,7 +85,6 @@ y_va_t = torch.tensor(y_va, dtype=torch.float32)
 
 # to feed the data to the model in mini batches
 train_loader = DataLoader(TensorDataset(X_tr_t, y_tr_t), batch_size=256, shuffle=True)
-val_loader   = DataLoader(TensorDataset(X_va_t, y_va_t), batch_size=512, shuffle=False)
 
 # --------------------
 # 3) Models: linear vs non linear
@@ -158,12 +160,13 @@ best = nonlinear_model if rmse_nn < rmse_lin else linear_model
 best_name = "mlp" if rmse_nn < rmse_lin else "linear"
 
 os.makedirs("./model", exist_ok=True)
+save_path = "./model/car_price_model.pt"
 torch.save({
     "model_state": best.state_dict(),
     "model_type": best_name,
     "X_mean": torch.tensor(X_mean),
     "X_std": torch.tensor(X_std),
-}, "./model/car_price_model.pt")
+}, save_path)
 
 print(f"\nSaved best model: {best_name} -> car_price_model.pt")
 
