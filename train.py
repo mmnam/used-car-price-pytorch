@@ -144,7 +144,7 @@ def train_model(model, epochs=200, lr=0.001):
 # --------------------
 # 5) Running both models
 # --------------------
-print("\n--- Linear baseline ---")
+print("\n--- Linear model ---")
 train_model(linear_model, epochs=200, lr=0.01)
 
 print("\n--- Non-linear MLP ---")

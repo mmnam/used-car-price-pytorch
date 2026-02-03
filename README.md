@@ -78,7 +78,7 @@ The script prints validation MAE/RMSE periodically and saves the best model chec
 
 - Console logs showing validation MAE/RMSE for:
 
-  - linear baseline
+  - linear model
 
   - non-linear MLP
 
@@ -105,11 +105,11 @@ This repo is a small exercise in:
 Final / best validation performance from one run:
 
 ### Model	Best Val MAE	
-Linear baseline:	$15,857 (around epoch 160)
+Linear model:	$15,824 (around epoch 180)
 
-**Non-linear MLP:	$14,485 (epoch 220)**
+**Non-linear MLP:	$14,463 (epoch 200)**
 
 ### Model Best Val RMSE
-Linear baseline:	$27,476 (epoch 200)
+Linear model:	$27,421 (epoch 200)
 
-**Non-linear MLP: $24,465 (epoch 240)**
+**Non-linear MLP: $24,453 (epoch 240)**
