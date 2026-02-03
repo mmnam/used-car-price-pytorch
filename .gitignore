@@ -1,0 +1,37 @@
+# ----------------------
+# Data / outputs
+# ----------------------
+used_cars.csv
+*.pt
+*.pth
+models/
+
+# ----------------------
+# Python cache / build
+# ----------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ----------------------
+# Virtual environments
+# ----------------------
+.venv/
+venv/
+env/
+
+# ----------------------
+# OS / editor files
+# ----------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ----------------------
+# Packaging / build artifacts
+# ----------------------
+build/
+dist/
+*.egg-info/
