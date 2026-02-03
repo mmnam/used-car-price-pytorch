@@ -99,3 +99,17 @@ This repo is a small exercise in:
 - evaluating performance on a validation split
 
 - saving a trained model for reuse
+
+## Results
+
+Final / best validation performance from one run:
+
+### Model	Best Val MAE	
+Linear baseline:	$15,857 (around epoch 160)
+
+**Non-linear MLP:	$14,485 (epoch 220)**
+
+### Model Best Val RMSE
+Linear baseline:	$27,476 (epoch 200)
+
+**Non-linear MLP: $24,465 (epoch 240)**
